@@ -1,0 +1,21 @@
+<!--#include file="pages/common/header.html"-->
+
+<!--#include file="pages/common/menu.html"-->
+
+<div id="content">
+  
+  <div id="colOne">
+    <!--#include file="pages/common/info.html"-->
+  </div>
+  
+  <div id="colTwo">
+    <!--#include file="pages/aboutme.html"-->
+  </div>
+  
+  <div style="clear: both;">&nbsp;</div>
+</div>
+
+<!--#include file="pages/common/footer.html"-->
+
+</body>
+</html>

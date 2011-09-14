@@ -1,0 +1,183 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin: 20px;
+	padding: 0;
+	background: #786E50 url(images/img1.gif);
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #3C3728;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+
+p, ol, ul {
+	line-height: 20px;
+}
+
+a {
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.image {
+	float: left;
+	margin: 5px 15px 0 0;
+	border: 4px solid #000000;
+}
+
+.byline {
+	margin: 0;
+	padding: 0 0 0 5px;
+	background: #645B43;
+	font-size: 9px;
+}
+
+
+/* Header */
+
+#header {
+	width: 742px;
+	height: 112px;
+	margin: 0 auto;
+	background: url(images/img2.jpg);
+	border: 4px solid #000000;
+}
+
+#header h1 {
+	float: left;
+	padding: 40px 0 0 20px;
+	text-transform: uppercase;
+	font-size: 36px;
+	color: #ACA283;
+}
+
+#header h2 {
+	float: right;
+	padding: 95px 5px 0 0;
+	font-size: 11px;
+}
+
+#header a {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 11px;
+	color: #ACA283;
+}
+
+/* Menu */
+
+#menu {
+	width: 750px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	width: 250px;
+	height: 26px;
+	padding: 4px 0 0 0;
+	background: url(images/img3.gif);
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	color: #ACA283;
+}
+
+#menu a:hover, #menu .active a {
+	background: url(images/img4.gif);
+	color: #FFFFFF;
+}
+
+/* Content */
+
+#content {
+	width: 742px;
+	margin: 0 auto;
+	background: #786E50 url(images/img5.gif) repeat-y;
+	border: 4px solid #000000;
+}
+
+#colOne {
+	float: left;
+	width: 216px;
+	padding: 15px;
+	color: #786E50;
+}
+
+#colOne h3 {
+	margin: 5px 0 10px 0;
+	color: #786E50;
+}
+
+#colOne ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#colOne a {
+	color: #645B43;
+}
+
+#colOne p {
+	text-align: justify;
+	margin-bottom: 5px;
+	line-height: 22px;
+	color: #645B43;
+}
+
+
+#colTwo {
+	float: right;
+	width: 446px;
+	padding: 20px;
+}
+
+/* Footer */
+
+#footer {
+	width: 750px;
+	margin: 0 auto;
+	background: #000000;
+}
+
+#footer p {
+	margin: 0;
+	padding: 0 0 4px 0;
+	text-align: center;
+	font-size: 9px;
+	color: #3C3728;
+}
+
+#footer a {
+	color: #786E50;
+}

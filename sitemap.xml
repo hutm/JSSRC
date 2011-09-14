@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>http://disi.unitn.eu/~khadkevich/main.shtml</loc>
+		<priority>1</priority>
+		<loc>http://disi.unitn.eu/~khadkevich/publications.shtml</loc>
+		<priority>1</priority>
+		<loc>http://disi.unitn.eu/~khadkevich/aboutme.shtml</loc>
+		<priority>1</priority>
+	</url>
+</urlset>
