@@ -4,4 +4,4 @@ It is based on the SSRC High Quality Audio Sampling Rate Converter (http://shiba
 Naohide Sano ported the C code into java.
 Finally, a number of small modification were performed in order to have a java resampling service that is easy to use.
 
-You can find an example of upsampling/downsampling in the /test directory
+You can find some examples of upsampling/downsampling in the /test directory
