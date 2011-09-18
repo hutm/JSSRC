@@ -2,11 +2,51 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>JSSRC</groupId>
-    <artifactId>JSSRC</artifactId>
+    <groupId>com.jssrc</groupId>
+    <artifactId>jssrc</artifactId>
+    <packaging>jar</packaging>
     <version>1.0</version>
+    <name>JSSRC -- High Quality Java SSRC Resampler</name>
+    <description>
+        JSSRC -- High Quality Java SSRC Resampler project
+    </description>
+    <url>http://jssrc.khadkevich.org</url>
 
-    
+
+    <mailingLists>
+        <mailingList>
+            <name>JSSRC mailing list</name>
+            <post>jssrc@googlegroups.com</post>
+            <archive>http://groups.google.com/group/jssrc</archive>
+        </mailingList>
+    </mailingLists>
+
+    <organization>
+        <name>Hut</name>
+        <url>http://www.khadkevich.org</url>
+    </organization>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.0.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
 </project>
