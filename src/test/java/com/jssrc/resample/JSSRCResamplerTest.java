@@ -1,4 +1,4 @@
-package eu.fbk.hut;
+package com.jssrc.resample;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
