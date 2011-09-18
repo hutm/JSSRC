@@ -49,4 +49,12 @@
     </dependencies>
 
 
+    <distributionManagement>
+        <repository>
+            <id>repo</id>
+            <name>khadkevich</name>
+            <url>file:///home/hut/prg/PROJECTS/WEBPAGES/repository/</url>
+        </repository>
+    </distributionManagement>
+
 </project>
