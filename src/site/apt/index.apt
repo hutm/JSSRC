@@ -1,0 +1,17 @@
+												----------
+												Overview
+												----------
+												Maksim Khadkevich
+												----------
+												2011-09-17
+												-----------
+												
+
+JSSRC Resampling Libraty
+
+    JSSRC project is aimed at creating high quality audio resampler written in pure java.
+
+        It is based on the SSRC High Quality Audio Sampling Rate Converter (http://shibatch.sourceforge.net/) by Naoki Shibata written in C.
+        Naohide Sano ported the C code into java.
+        Finally, a number of small modification was performed in order to have a java resampling service that is easy to use.
+

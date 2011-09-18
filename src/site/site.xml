@@ -1,0 +1,38 @@
+<project name="JSSRC Resampling Library">
+    <publishDate position="right" format="MM-dd-yyyy hh:mm"/>
+    <version position="right"/>
+
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-stylus-skin</artifactId>
+        <version>1.2</version>
+    </skin>
+
+    <bannerLeft>
+        <name>JSSRC_LOGO</name>
+        <src>images/logo.gif</src>
+        <href>http://github.com/hutm/JSSRC</href>
+    </bannerLeft>
+
+    <body>
+
+        <breadcrumbs>
+            <item name="JSSRC on github" href="http://github.com/hutm/JSSRC"/>
+        </breadcrumbs>
+        <links>
+            <item name="JSSRC" href="http://jssrc.khadkevich.org/"/>
+            <item name="JSSRC@GoogleGroups" href="http://groups.google.com/group/jssrc/"/>
+        </links>
+
+
+        <menu name="Home">
+            <item name="Index" href="index.html"/>
+        </menu>
+        <menu name="Reference">
+            <item name="Release Notes" href="release-notes.html"/>
+        </menu>
+        <menu ref="reports"/>
+    </body>
+
+
+</project>

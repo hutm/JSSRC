@@ -1,0 +1,17 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    <properties>
+        <title>JSSRC Library</title>
+        <author email="hutmdev@gmail.com">Maksim Khadkevich</author>
+    </properties>
+    <body>
+        <release version="1.0" date="2011-09-16" description="First release">
+            <action dev="Maksim.Khadkevich" type="add">
+                Initial Release
+            </action>
+        </release>
+
+    </body>
+</document>
+

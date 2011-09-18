@@ -1,0 +1,31 @@
+                                    ------------------------------
+                                          Source repository
+                                    ------------------------------
+                                          Maksim Khadkevich
+                                    ------------------------------
+                                             2011-09-17
+                                    ------------------------------
+
+Overview
+
+ This project uses GitHub for source code management.
+ Instructions on Git use can be found at http://git-scm.com/.
+
+
+* Web Access
+
+ The following is a link to the online source repository.
+
++----------------------------------------------------------------------------+
+https://github.com/hutm/JSSRC
++----------------------------------------------------------------------------+
+
+* Anonymous access
+
+ The source can be checked out from GitHub with this command:
+
+
++----------------------------------------------------------------------------+
+$ git clone git://github.com/hutm/JSSRC.git
++----------------------------------------------------------------------------+
+
