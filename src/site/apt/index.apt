@@ -13,6 +13,8 @@ JSSRC Resampling Libraty
 
         It is based on the {{{http://shibatch.sourceforge.net/}SSRC}}  High Quality Audio Sampling Rate Converter by Naoki Shibata written in C.
 
+        Evaluation of the SSRC resampler can be found {{{http://www.mainly.me.uk/resampling/index.html} here}}.
+
         Naohide Sano ported the C code into java.
 
         Finally, a number of small modification was performed in order to have a java resampling service that is easy to use.
