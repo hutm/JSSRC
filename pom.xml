@@ -29,6 +29,37 @@
         <url>http://www.khadkevich.org</url>
     </organization>
 
+    <developers>
+        <developer>
+            <id>maksim.khadkevich</id>
+            <name>Maksim Khadkevich</name>
+            <email>hutmdev@gmail.com</email>
+            <url>http://www.khadkevich.org</url>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <contributors>
+        <contributor>
+            <name>Naoki Shibata</name>
+            <email>shibatch@users.sourceforge.net</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Naohide Sano</name>
+            <email>vavivavi@yahoo.co.jp</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </contributor>
+
+    </contributors>
+
+
     <reporting>
         <plugins>
             <plugin>
@@ -47,6 +78,19 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
     <distributionManagement>

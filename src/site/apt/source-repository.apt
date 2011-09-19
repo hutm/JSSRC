@@ -6,15 +6,15 @@
                                              2011-09-17
                                     ------------------------------
 
-Overview
+Repository
 
  This project uses GitHub for source code management.
- Instructions on Git use can be found at http://git-scm.com/.
+ Instructions on Git use can be found at {{http://git-scm.com/}}.
 
 
 * Web Access
 
- The following is a link to the online source repository.
+ The following is a {{{https://github.com/hutm/JSSRC}link}} to the online source repository.
 
 +----------------------------------------------------------------------------+
 https://github.com/hutm/JSSRC

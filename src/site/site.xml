@@ -27,9 +27,10 @@
 
         <menu name="Home">
             <item name="Index" href="index.html"/>
-        </menu>
-        <menu name="Reference">
             <item name="Release Notes" href="release-notes.html"/>
+            <item name="Repository" href="source-repository.html"/>
+            <item name="Downloads" href="downloads.html"/>
+            <item name="Help" href="help.html"/>
         </menu>
         <menu ref="reports"/>
     </body>
