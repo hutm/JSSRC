@@ -964,21 +964,21 @@ public class SSRC {
                         if ((double) sumread * dfrq / sfrq + 2 > sumwrite + nsmplwrt2) {
                             rawoutbuf.position(0);
                             rawoutbuf.limit(dbps * nch * nsmplwrt2);
-                            fpo.write(getDataFromByteBuffer(rawoutbuf));
+                            writeBuffers(fpo, rawoutbuf);
                             sumwrite += nsmplwrt2;
                         } else {
                             rawoutbuf.position(0);
                             int limitData = (int) (dbps * nch * (Math.floor((double) sumread * dfrq / sfrq) + 2 - sumwrite));
                             if (limitData > 0) {
                                 rawoutbuf.limit(limitData);
-                                fpo.write(getDataFromByteBuffer(rawoutbuf));
+                                writeBuffers(fpo, rawoutbuf);
                             }
                             break;
                         }
                     } else {
                         rawoutbuf.position(0);
                         rawoutbuf.limit(dbps * nch * nsmplwrt2);
-                        fpo.write(getDataFromByteBuffer(rawoutbuf));
+                        writeBuffers(fpo, rawoutbuf);
                         sumwrite += nsmplwrt2;
                     }
                 } else {
@@ -990,18 +990,18 @@ public class SSRC {
                             if ((double) sumread * dfrq / sfrq + 2 > sumwrite + nsmplwrt2 - delay) {
                                 rawoutbuf.position(dbps * nch * delay);
                                 rawoutbuf.limit(dbps * nch * (nsmplwrt2 - delay));
-                                fpo.write(getDataFromByteBuffer(rawoutbuf));
+                                writeBuffers(fpo, rawoutbuf);
                                 sumwrite += nsmplwrt2 - delay;
                             } else {
                                 rawoutbuf.position(dbps * nch * delay);
                                 rawoutbuf.limit((int) (dbps * nch * (Math.floor((double) sumread * dfrq / sfrq) + 2 + sumwrite + nsmplwrt2 - delay)));
-                                fpo.write(getDataFromByteBuffer(rawoutbuf));
+                                writeBuffers(fpo, rawoutbuf);
                                 break;
                             }
                         } else {
                             rawoutbuf.position(dbps * nch * delay);
                             rawoutbuf.limit(dbps * nch * (nsmplwrt2));
-                            fpo.write(getDataFromByteBuffer(rawoutbuf));
+                            writeBuffers(fpo, rawoutbuf);
                             sumwrite += nsmplwrt2 - delay;
                             init = false;
                         }
@@ -1547,21 +1547,21 @@ public class SSRC {
                         if ((double) sumread * dfrq / sfrq + 2 > sumwrite + nsmplwrt2) {
                             rawoutbuf.position(0);
                             rawoutbuf.limit(dbps * nch * nsmplwrt2);
-                            fpo.write(getDataFromByteBuffer(rawoutbuf));
+                            writeBuffers(fpo, rawoutbuf);
                             sumwrite += nsmplwrt2;
                         } else {
                             rawoutbuf.position(0);
                             int limitData = (int) (dbps * nch * (Math.floor((double) sumread * dfrq / sfrq) + 2 - sumwrite));
                             if (limitData > 0) {
                                 rawoutbuf.limit(limitData);
-                                fpo.write(getDataFromByteBuffer(rawoutbuf));
+                                writeBuffers(fpo, rawoutbuf);
                             }
                             break;
                         }
                     } else {
                         rawoutbuf.position(0);
                         rawoutbuf.limit(dbps * nch * nsmplwrt2);
-                        fpo.write(getDataFromByteBuffer(rawoutbuf));
+                        writeBuffers(fpo, rawoutbuf);
                         sumwrite += nsmplwrt2;
                     }
                 } else {
@@ -1572,18 +1572,18 @@ public class SSRC {
                             if ((double) sumread * dfrq / sfrq + 2 > sumwrite + nsmplwrt2 - delay) {
                                 rawoutbuf.position(dbps * nch * delay);
                                 rawoutbuf.limit(dbps * nch * (nsmplwrt2 - delay));
-                                fpo.write(getDataFromByteBuffer(rawoutbuf));
+                                writeBuffers(fpo, rawoutbuf);
                                 sumwrite += nsmplwrt2 - delay;
                             } else {
                                 rawoutbuf.position(dbps * nch * delay);
                                 rawoutbuf.limit((int) (dbps * nch * (Math.floor((double) sumread * dfrq / sfrq) + 2 + sumwrite + nsmplwrt2 - delay)));  //TODO fails with short signals (think that fixed this)
-                                fpo.write(getDataFromByteBuffer(rawoutbuf));
+                                writeBuffers(fpo, rawoutbuf);
                                 break;
                             }
                         } else {
                             rawoutbuf.position(dbps * nch * delay);
                             rawoutbuf.limit(dbps * nch * (nsmplwrt2));
-                            fpo.write(getDataFromByteBuffer(rawoutbuf));
+                            writeBuffers(fpo, rawoutbuf);
                             sumwrite += nsmplwrt2 - delay;
                             init = false;
                         }
@@ -1711,7 +1711,7 @@ public class SSRC {
                         buf.limit(1);
                         buf.put(0, (byte) (s + 128));
                         buf.flip();
-                        fpo.write(getDataFromByteBuffer(buf));
+                        writeBuffers(fpo, buf);
                         break;
                     case 2:
                         f *= 0x7fff;
@@ -1720,7 +1720,7 @@ public class SSRC {
                         buf.limit(2);
                         buf.asShortBuffer().put(0, (short) s);
                         buf.flip();
-                        fpo.write(getDataFromByteBuffer(buf));
+                        writeBuffers(fpo, buf);
                         break;
                     case 3:
                         f *= 0x7fffff;
@@ -1733,7 +1733,7 @@ public class SSRC {
                         s >>= 8;
                         buf.put(2, (byte) (s & 255));
                         buf.flip();
-                        fpo.write(getDataFromByteBuffer(buf));
+                        writeBuffers(fpo, buf);
                         break;
                 }
             } else {
@@ -1742,7 +1742,7 @@ public class SSRC {
                 leos.position(0);
                 leos.putDouble(f);
                 leos.flip();
-                fpo.write(getDataFromByteBuffer(leos));
+                writeBuffers(fpo, leos);
             }
 
             ch++;
@@ -2087,7 +2087,7 @@ public class SSRC {
             leos.putInt(dword);
 
             leos.flip();
-            fpo.write(getDataFromByteBuffer(leos));
+            writeBuffers(fpo, leos);
         }
 
         if (dither != 0) {
@@ -2227,7 +2227,7 @@ public class SSRC {
                         buf.put((byte) (s + 128));
                         buf.flip();
 
-                        fpo.write(getDataFromByteBuffer(buf));
+                        writeBuffers(fpo, buf);
                     }
                     break;
                     case 2: {
@@ -2237,7 +2237,7 @@ public class SSRC {
                         buf.putShort((short) s);
                         buf.flip();
 
-                        fpo.write(getDataFromByteBuffer(buf));
+                        writeBuffers(fpo, buf);
                     }
                     break;
                     case 3: {
@@ -2251,7 +2251,7 @@ public class SSRC {
                         buf.put((byte) (s & 255));
                         buf.flip();
 
-                        fpo.write(getDataFromByteBuffer(buf));
+                        writeBuffers(fpo, buf);
                     }
                     break;
                 }
@@ -2461,6 +2461,15 @@ public class SSRC {
         rawoutbuf.get(tempDataWrt, 0, tempDataWrt.length);
 
         return tempDataWrt;
+    }
+
+
+    protected void writeBuffers(OutputStream fpo, ByteBuffer rawoutbuf) {
+        try {
+            fpo.write(getDataFromByteBuffer(rawoutbuf));
+        } catch (IOException e) {
+            // Some problems (Read end dead)
+        }
     }
 
 
