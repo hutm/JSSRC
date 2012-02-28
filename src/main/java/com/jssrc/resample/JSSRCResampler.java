@@ -59,6 +59,11 @@ public class JSSRCResampler extends InputStream {
             ssrcInputStream = new BufferedInputStream(ssrcInputStream);
             resamplingRunnable = new Runnable() {
                 public void run() {
+                    //Initialize class first. Since the initialization is not inside the main thread, NoClassDefFoundError can be thrown //TODO fix it
+                    boolean initialized = initializeClass();
+                    if(!initialized){
+                        throw new RuntimeException("Could not initialize SSRC class after several attempts");
+                    }
                     try {
                         new SSRC(ssrcInputStream, dataOutputStream, (int) inAudioFormat.getSampleRate(), (int) outAudioFormat.getSampleRate(),
                                 inAudioFormat.getFrameSize() / inAudioFormat.getChannels(),
@@ -75,6 +80,32 @@ public class JSSRCResampler extends InputStream {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    private boolean initializeClass(){
+        boolean initialized = true;
+        for (int i = 0; i < 5; i++) {
+            initialized = true;
+            try{
+                Class.forName(SSRC.class.getName());
+            } catch (NoClassDefFoundError e){
+                System.err.println("Could not initialize SSRC class...");
+                initialized = false;
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                initialized = false;
+            }
+            if(initialized){
+                break;
+            }
+        }
+        return initialized;
     }
 
 
