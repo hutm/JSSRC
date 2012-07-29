@@ -594,15 +594,15 @@ public class SSRC {
 
         {
             int n2b2 = n2b / 2;
-            // inbuf��fs1�ł̎��ɓǂރT���v����?�?���ێ?
+            // inbuffs1Tv???
             int rp;
-            // ����dispose����sfrq�ł̃T���v��?�
+            // disposesfrqTv?
             int ds;
-            // ��?ۂɃt�@�C������inbuf�ɓǂ�?��܂ꂽ�l����v�Z���� stage2 filter�ɓn�����T���v��?�
+            // ?t@Cinbuf?lvZ stage2 filternTv?
             int nsmplwrt1;
-            // ��?ۂɃt�@�C������inbuf�ɓǂ�?��܂ꂽ�l����v�Z���� stage2 filter�ɓn�����T���v��?�
+            // ?t@Cinbuf?lvZ stage2 filternTv?
             int nsmplwrt2 = 0;
-            // stage1 filter����?o�͂��ꂽ�T���v����?���n1y*osf�Ŋ������]��
+            // stage1 filter?oTv?n1y*osf]
             int s1p;
             boolean init;
             boolean ending;
@@ -1168,7 +1168,7 @@ public class SSRC {
             iza = I0Bessel.value(alp);
 //System.err.printf("iza %f, alp: %f\n", iza, alp); // OK
 
-            n2y = fs2 / fs1; // 0�łȂ��T���v����fs2�ŉ��T���v�������ɂ��邩?H
+            n2y = fs2 / fs1; // 0Tvfs2Tv?H
             n2x = n2 / n2y + 1;
 
             f2order = new int[n2y];
@@ -1202,18 +1202,18 @@ public class SSRC {
 
         {
             int n1b2 = n1b / 2;
-            int rp; // inbuf��fs1�ł̎��ɓǂރT���v����?�?���ێ?
-            int rps; // rp��(fs1/sfrq=osf)�Ŋ������]��
-            int rp2; // buf2��fs2�ł̎��ɓǂރT���v����?�?���ێ?
-            int ds; // ����dispose����sfrq�ł̃T���v��?�
-            // ��?ۂɃt�@�C������inbuf�ɓǂ�?��܂ꂽ�l����v�Z���� stage2 filter�ɓn�����T���v��?�
+            int rp; // inbuffs1Tv???
+            int rps; // rp(fs1/sfrq=osf)]
+            int rp2; // buf2fs2Tv???
+            int ds; // disposesfrqTv?
+            // ?t@Cinbuf?lvZ stage2 filternTv?
 //          int nsmplwrt1;
-            // ��?ۂɃt�@�C������inbuf�ɓǂ�?��܂ꂽ�l����v�Z���� stage2 filter�ɓn�����T���v��?�
+            // ?t@Cinbuf?lvZ stage2 filternTv?
             int nsmplwrt2 = 0;
-            int s2p; // stage1 filter����?o�͂��ꂽ�T���v����?���n1y*osf�Ŋ������]��
+            int s2p; // stage1 filter?oTv?n1y*osf]
             boolean init, ending;
 //          int osc;
-            int bp; // rp2����v�Z�����?Dbuf2�̎��ɓǂރT���v���̈ʒu
+            int bp; // rp2vZ?Dbuf2Tvu
             int rps_backup, s2p_backup;
             int k, ch, p;
             int inbuflen = 0;
@@ -1224,13 +1224,13 @@ public class SSRC {
             // |....B....|....C....| buf1 n1b2+n1b2
             // |.A.|....D....| buf2 n2x+n1b2
             //
-            // �܂�inbuf����B��osf�{�T���v�����O���Ȃ���R�s?[
-            // C�̓N���A
-            // BC��stage 1 filter��������
-            // D��B�𑫂�
-            // AD��stage 2 filter��������
-            // D�̌���A�Ɉړ�
-            // C��D�ɃR�s?[
+            // inbufBosf{TvORs?[
+            // CNA
+            // BCstage 1 filter
+            // DB
+            // ADstage 2 filter
+            // DA
+            // CDRs?[
 
             buf1 = new double[nch][n1b];                                      //rawoutbuf = calloc(nch*(n2b2/osf+1),dbps);
 
