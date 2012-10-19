@@ -1,10 +1,11 @@
 package com.jssrc.resample;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+import org.testng.annotations.Test;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import java.io.File;
 
 /**
@@ -14,15 +15,14 @@ import java.io.File;
  * @since <pre>03/25/2011</pre>
  * @version 1.0
  */
-public class JSSRCResamplerTest extends TestCase {
-
-
+public class JSSRCResamplerTest {
 
     /**
      *
      * This simple test downsamples and upsamples two test files
      *
      */
+    @Test
     public void testReadSamples() throws Exception {
 
         String[] fileNames = new String[]{"/mono_short_test.wav", "/stereo_long_test.wav"};

@@ -2,6 +2,8 @@ package com.jssrc.resample;
 
 
 import vavi.sound.pcm.resampling.ssrc.SSRC;
+import vavi.util.I0Bessel;
+import vavi.util.SplitRadixFft;
 
 import javax.sound.sampled.AudioFormat;
 import java.io.*;
@@ -48,7 +50,7 @@ public class JSSRCResampler extends InputStream {
             System.out.println("No sample rate conversion is needed");
             return;
         }
-
+        initializeClasses();
         try {
             pipedInputStream = new PipedInputStream();
             dataInputStream = new DataInputStream(new BufferedInputStream(pipedInputStream));
@@ -57,13 +59,9 @@ public class JSSRCResampler extends InputStream {
             dataOutputStream = new DataOutputStream(pipedOutputStream);
 
             ssrcInputStream = new BufferedInputStream(ssrcInputStream);
+
             resamplingRunnable = new Runnable() {
                 public void run() {
-                    //Initialize class first. Since the initialization is not inside the main thread, NoClassDefFoundError can be thrown //TODO fix it
-                    boolean initialized = initializeClass();
-                    if(!initialized){
-                        throw new RuntimeException("Could not initialize SSRC class after several attempts");
-                    }
                     try {
                         new SSRC(ssrcInputStream, dataOutputStream, (int) inAudioFormat.getSampleRate(), (int) outAudioFormat.getSampleRate(),
                                 inAudioFormat.getFrameSize() / inAudioFormat.getChannels(),
@@ -83,29 +81,14 @@ public class JSSRCResampler extends InputStream {
     }
 
 
-    private boolean initializeClass(){
-        boolean initialized = true;
-        for (int i = 0; i < 5; i++) {
-            initialized = true;
-            try{
-                Class.forName(SSRC.class.getName());
-            } catch (NoClassDefFoundError e){
-                System.err.println("Could not initialize SSRC class...");
-                initialized = false;
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                initialized = false;
-            }
-            if(initialized){
-                break;
-            }
+    private void  initializeClasses(){
+        try {
+            Class.forName(SSRC.class.getName());
+            Class.forName(I0Bessel.class.getName());
+            Class.forName(SplitRadixFft.class.getName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        return initialized;
     }
 
 

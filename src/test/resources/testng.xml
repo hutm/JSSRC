@@ -1,0 +1,44 @@
+<!--
+  ~ This file is part of MART.
+  ~ MART is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU General Public License version 2, as published
+  ~ by the Free Software Foundation.
+  ~
+  ~ MART is distributed in the hope that it will be useful, but
+  ~ WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with MART; if not, write to the Free Software Foundation,
+  ~ Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  -->
+
+<!--
+  ~ This file is part of MART.
+  ~ MART is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU General Public License version 2, as published
+  ~ by the Free Software Foundation.
+  ~
+  ~ MART is distributed in the hope that it will be useful, but
+  ~ WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with MART; if not, write to the Free Software Foundation,
+  ~ Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  -->
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="XML Test suite" parallel="classes" thread-count="10">
+
+
+	<test name="Default tests">
+		<packages>
+			<package name="com.jssrc.resample.*"/>
+		</packages>
+	</test>
+
+
+</suite>

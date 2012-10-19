@@ -1771,6 +1771,8 @@ public class SSRC {
             0.7, 0.9, 0.18
     };
 
+    public SSRC(){}
+
     /** */
     SSRC(String[] argv) throws IOException {
         String sfn, dfn, tmpfn = null;
