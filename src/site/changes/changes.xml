@@ -6,6 +6,11 @@
         <author email="hutmdev@gmail.com">Maksim Khadkevich</author>
     </properties>
     <body>
+        <release version="1.0.1" date="2013-02-28" description="1.0.1">
+            <action dev="Maksim.Khadkevich" type="add">
+                Bug fixes
+            </action>
+        </release>
         <release version="1.0" date="2011-09-16" description="First release">
             <action dev="Maksim.Khadkevich" type="add">
                 Initial Release
