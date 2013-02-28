@@ -15,6 +15,28 @@
     </description>
     <url>http://jssrc.khadkevich.org</url>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>repo-snapshot</id>
+            <name>Snapshots repository</name>
+            <url>${env.MAVEN_ARTIFACTORY_SNAPSHOTS}</url>
+        </snapshotRepository>
+        <repository>
+            <id>repo-release</id>
+            <name>Release repository</name>
+            <url>${env.MAVEN_ARTIFACTORY}</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:git://github.com/hutm/JSSRC.git</connection>
+        <developerConnection>scm:git:git@github.com:hutm/JSSRC.git</developerConnection>
+        <url>http://github.com/hutm/JSSRC.git</url>
+    </scm>
+
+    <properties>
+        <github.global.server>github</github.global.server>
+    </properties>
 
     <mailingLists>
         <mailingList>
@@ -113,7 +135,24 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.6</version>
+                <configuration>
+                    <message>Creating site for ${project.version}</message>
+                    <repositoryName>JSSRC</repositoryName>
+                    <repositoryOwner>hutm</repositoryOwner>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
