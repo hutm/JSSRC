@@ -8,7 +8,7 @@
     <groupId>com.jssrc</groupId>
     <artifactId>jssrc</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>JSSRC -- High Quality Java SSRC Resampler</name>
     <description>
         JSSRC -- High Quality Java SSRC Resampler project
@@ -37,6 +37,12 @@
     <properties>
         <github.global.server>github</github.global.server>
     </properties>
+    <licenses>
+        <license>
+            <name>GPL 2</name>
+            <url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
+        </license>
+    </licenses>
 
     <mailingLists>
         <mailingList>
