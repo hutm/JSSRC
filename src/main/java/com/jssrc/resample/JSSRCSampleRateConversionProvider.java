@@ -81,7 +81,12 @@ public class JSSRCSampleRateConversionProvider extends FormatConversionProvider 
 
         if (isConversionSupported(inputFormat, outputFormat)) {
             JSSRCResampler resampler = new JSSRCResampler(inputFormat, outputFormat, sourceStream);
-            return new AudioInputStream(resampler, outputFormat, AudioSystem.NOT_SPECIFIED);
+            // set sample size from source stream if possible
+            long length = AudioSystem.NOT_SPECIFIED;
+            if (AudioSystem.NOT_SPECIFIED != sourceStream.getFrameLength()) {
+                length = (long) (sourceStream.getFrameLength() * targetFormat.getSampleRate() / inputFormat.getSampleRate());
+            }
+            return new AudioInputStream(resampler, outputFormat, length);
         }
         throw new IllegalArgumentException("Unsupported conversion: " + sourceStream.getFormat().toString() + " to " + targetFormat.toString());
     }
