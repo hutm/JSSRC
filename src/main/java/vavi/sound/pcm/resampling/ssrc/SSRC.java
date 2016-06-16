@@ -618,10 +618,10 @@ public class SSRC {
 
             buf2 = new double[nch][n2b];
 
-            rawinbuf = ByteBuffer.allocate(nch * (n2b2 + n1x) * bps); // ,bps
+            rawinbuf = ByteBuffer.allocate(nch * (n2b2 + n1x + 2) * bps); // ,bps
             rawoutbuf = ByteBuffer.allocate(nch * (n2b2 / osf + 1) * dbps); // ,dbps
 
-            inbuf = new double[nch * (n2b2 + n1x)];
+            inbuf = new double[nch * (n2b2 + n1x + 2)];
             outbuf = new double[nch * (n2b2 / osf + 1)];
 
             s1p = 0;
@@ -639,13 +639,13 @@ public class SSRC {
             while (true) {
                 int nsmplread, toberead, toberead2;
 
-                toberead2 = toberead = (int) (Math.floor((double) n2b2 * sfrq / (dfrq * osf)) + 1 + n1x - inbuflen);
+                toberead2 = toberead = (int) (Math.ceil((double) n2b2 * sfrq / (dfrq * osf)) + 1 + n1x - inbuflen);
                 if (toberead + sumread > chanklen) {
                     toberead = chanklen - sumread;
                 }
 
                 rawinbuf.position(0);
-                rawinbuf.limit(Math.min(rawinbuf.limit(), bps * nch * toberead));
+                rawinbuf.limit(bps * nch * toberead);
 //                rawinbuf.limit(bps * nch * toberead);
 
                 byte[] tempData = new byte[rawinbuf.limit()];
@@ -989,12 +989,12 @@ public class SSRC {
                         if (ending) {
                             if ((double) sumread * dfrq / sfrq + 2 > sumwrite + nsmplwrt2 - delay) {
                                 rawoutbuf.position(dbps * nch * delay);
-                                rawoutbuf.limit(dbps * nch * (nsmplwrt2 - delay));
+                                rawoutbuf.limit(dbps * nch * nsmplwrt2);
                                 writeBuffers(fpo, rawoutbuf);
                                 sumwrite += nsmplwrt2 - delay;
                             } else {
                                 rawoutbuf.position(dbps * nch * delay);
-                                rawoutbuf.limit((int) (dbps * nch * (Math.floor((double) sumread * dfrq / sfrq) + 2 + sumwrite + nsmplwrt2 - delay)));
+                                rawoutbuf.limit((int) (dbps * nch * (Math.floor((double) sumread * dfrq / sfrq) + 2 - sumwrite)));
                                 writeBuffers(fpo, rawoutbuf);
                                 break;
                             }
