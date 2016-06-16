@@ -37,13 +37,13 @@ public class SSRC {
     private static final String VERSION = "1.30";
 
     /** */
-    private double AA = 170;
+    private double AA = 150;
 
     /** */
-    private double DF = 100;
+    private double DF = 200;
 
     /** */
-    private int FFTFIRLEN = 65536;
+    private int FFTFIRLEN = 1;
 
     /** */
 //  private static final int M = 15;
